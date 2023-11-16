@@ -1,0 +1,10 @@
+--- # My first yaml project
+ - hosts: demo
+   user: ansible
+   become: yes
+   connection: ssh
+   gather_facts: yes
+   tasks:
+           - name: Task with debug mode
+             ansible.builtin.debug:
+                     msg: "Welcome to Ansible Playbooks"
