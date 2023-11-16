@@ -1,0 +1,13 @@
+--- # Find Java Version
+ - hosts: demo
+   user: ansible
+   become: yes
+   connection: ssh
+   tasks:
+           - name: Execution java version command with command module
+             ansible.builtin.command:
+                     cmd: 'java -version'
+             register: javaVersion
+           - name: Displaying java version with debug module
+             ansible.builtin.debug:
+                     msg: "{{(javaVersion.stderr|split)[2]|trim('\"')}}"
