@@ -1,0 +1,18 @@
+---
+ - hosts: 192.168.2.87
+   user: ansible
+   become: yes
+   connection: ssh
+   vars:
+           a: 90
+           b: 40
+   tasks:
+           - ansible.builtin.debug:
+                   msg:
+                           - "The numbers are {{a}} and {{b}}"
+                           - "a + b = {{a+b}}"
+                           - "a - b = {{a-b}}"
+                           - "a * b = {{a*b}}"
+                           - "a / b = {{a/b}}"
+                           - "a // b = {{a//b}}"
+                           - "a ** 2 = {{a**2}}"
